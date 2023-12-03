@@ -1,5 +1,3 @@
-require "fileutils"
-
 module JetsUpgrade
   class PublicIndex
     def run

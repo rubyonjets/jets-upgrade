@@ -1,9 +1,9 @@
 module JetsUpgrade
   module Rewrite
-    def run
+    def run(options={})
       Application.run
       Rakefile.run
-      Gemfile.run
+      Gemfile.run(options)
       rewrite_environment_files
       rewrite_controllers
     end

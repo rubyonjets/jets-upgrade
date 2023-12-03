@@ -8,12 +8,14 @@
 
 This is a standalone CLI tool to help with jets upgrades.
 
-* It supports going from jets v4 and below to jets v5.
+* It can handle going from Jets v3 or v4 to Jets v5.
 
 ## Usage
 
     cd old-jets-project
     jets-upgrade go
+
+Before proceeding, the tool will prompt you with a "Are you sure" message.
 
 ## What It Does
 
@@ -25,9 +27,17 @@ Here are some of the things the tool does. It updates:
 * config/environment: update environment files to new config settings
 * controllers: updates controller to use `def destroy` instead of `def delete`
 
+## Important
+
+It's unfeasible to account for all cases and Jets apps. This script cannot perform miracle upgrades. It's a best-effort script, and the hope is that this script gets you pretty far and is helpful. 😄
+
 ## Install
 
     gem install jets-upgrade
+
+## Javascript Option
+
+By default, the `jets-upgrade go` command also tries to upgrade JavaScript. Jets v5 goes from webpacker to importmap. So, the node-related files are no longer needed. The upgrade command will remove node-related files. If you do not want this behavior, use the `--no-javascript` option.
 
 ## Docs
 

@@ -5,6 +5,8 @@ module JetsUpgrade
 
     desc "go", "Run jets upgrade script"
     long_desc Help.text(:go)
+    option :javascript, type: :boolean, default: true, desc: "Upgrade javascript files"
+    option :yes, type: :boolean, aliases: :y, default: false, desc: "By pass are you sure prompt"
     def go
       Go.new(options).run
     end

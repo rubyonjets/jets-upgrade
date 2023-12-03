@@ -13,6 +13,7 @@ module JetsUpgrade::Rewrite
         gem "jets", "~> 5.0.0"
         gem "importmap-jets"
         gem "sprockets-jets"
+        gem "sassc" # only required if using sass in stylesheets
       EOL
       new_dynomite = <<~EOL
         gem "dynomite", "~> 2.0.0" # recommend upgrading
@@ -22,7 +23,7 @@ module JetsUpgrade::Rewrite
         if line =~ /gem "jets"/
           line = "# #{line}" + new_gems
         end
-        if line =~ /gem "jetpacker"/
+        if line =~ /gem "jetpacker"/ && @options[:javascript]
           line = "# #{line}"
         end
         if line =~ /gem "dynomite"/
@@ -36,6 +37,15 @@ module JetsUpgrade::Rewrite
       end
 
       modified_lines.join('')
+    end
+
+    def message
+      puts <<~EOL
+        Your Gemfile has been updated. Please run:
+
+      EOL
+      puts "    bundle install".color(:green)
+      puts
     end
 
     def using_dynomite?
