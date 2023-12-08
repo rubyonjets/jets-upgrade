@@ -4,6 +4,7 @@ module JetsUpgrade
       Application.run
       Rakefile.run
       Gemfile.run(options)
+      Routes.run
       rewrite_environment_files
       rewrite_controllers
     end
