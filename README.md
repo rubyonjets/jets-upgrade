@@ -31,6 +31,8 @@ Here are some of the things the tool does. It updates:
 
 It's unfeasible to account for all cases and Jets apps. This script cannot perform miracle upgrades. It's a best-effort script, and the hope is that this script gets you pretty far and is helpful. 😄
 
+Also see: [Jets 5 Upgrading Notes](https://docs.rubyonjets.com/docs/extras/upgrading/jets-5/)
+
 ## Install
 
     gem install jets-upgrade
